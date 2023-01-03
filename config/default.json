@@ -1,4 +1,6 @@
 {
 	"mongoURI": "mongodb+srv://dbUser:dbUser@cluster0.pyiw2.mongodb.net/MERN-ReactReduxCourse",
-	"jwtSecret": "jwt-secret"
+	"jwtSecret": "jwt-secret",
+	"githubClientId": "Iv1.40753dd6641e8d99",
+	"githubClientSecret": "abdfbfc4d46234fd00cb86f49b199a636ce497a1"
 }
