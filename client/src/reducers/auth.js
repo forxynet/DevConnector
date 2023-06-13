@@ -1,37 +1,47 @@
 import {
   REGISTER_SUCCESS,
-  REGISTER_FAIL
-} from '../actions/types';
-
+  REGISTER_FAIL,
+  USER_LOADED,
+  AUTH_ERROR,
+} from "../actions/types";
 
 //inital
 const initialState = {
-  token: localStorage.getItem('token'),
+  token: localStorage.getItem("token"),
   isAuthenticated: null,
   loading: true,
-  user: null
-}
+  user: null,
+};
 
-export default function(state = initialState, action) {
+// eslint-disable-next-line import/no-anonymous-default-export
+export default function (state = initialState, action) {
   const { type, payload } = action;
 
-  switch(type){
+  switch (type) {
+    case USER_LOADED:
+      return {
+        ...state,
+        isAuthenticated: true,
+        loading: false,
+        user: payload,
+      };
     case REGISTER_SUCCESS:
-      localStorage.setItem('token', payload.token);
+    case AUTH_ERROR:
+      localStorage.setItem("token", payload.token);
       return {
         ...state,
         ...payload,
         isAuthenticated: true,
-        loading: false
-      }
+        loading: false,
+      };
     case REGISTER_FAIL:
-      localStorage.removeItem('token');
+      localStorage.removeItem("token");
       return {
         ...state,
         token: null,
         isAuthenticated: false,
-        loading: false
-      }
+        loading: false,
+      };
     default:
       return state;
   }
