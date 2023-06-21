@@ -5,7 +5,7 @@ import {
   AUTH_ERROR,
 } from "../actions/types";
 
-//inital
+//initial
 const initialState = {
   token: localStorage.getItem("token"),
   isAuthenticated: null,
