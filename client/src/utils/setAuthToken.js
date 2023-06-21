@@ -4,6 +4,7 @@ import api from './api';
 
 const setAuthToken = (token) => {
   if (token) {
+    console.log(token);
     api.defaults.headers.common['x-auth-token'] = token;
     localStorage.setItem('token', token);
   } else {

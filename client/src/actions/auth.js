@@ -9,7 +9,7 @@ import {
   LOGIN_FAIL,
   LOGOUT
 } from './types';
-
+import setAuthToken from '../utils/setAuthToken';
 /*
   NOTE: we don't need a config object for axios as the
  default headers in axios are already Content-Type: application/json
@@ -18,7 +18,10 @@ import {
 */
 
 // Load User
-export const loadUser = () => async (dispatch) => {
+export const loadUser = () => async dispatch => {
+  if (localStorage.token) {   
+    setAuthToken(localStorage.token);
+  }
   try {
     const res = await api.get('/auth');
 
