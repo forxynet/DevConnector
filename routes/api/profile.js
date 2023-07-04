@@ -20,8 +20,7 @@ router.get('/me', auth, async (req, res) => {
 
     if (!profile) {
       return res.status(400).json({ msg: 'There is no profile for this user' });
-    }
-
+    }       
     res.json(profile);
   } catch (err) {
     console.error(err.message);
@@ -83,7 +82,7 @@ router.post(
 
     try {
       let profile = await Profile.findOne({ user: req.user.id });
-      console.log(req.user.id);
+      //console.log(req.user.id);
       if (profile) {
         // update profile
         profile = await Profile.findOneAndUpdate(
@@ -148,7 +147,7 @@ router.get("/user/:user_id", async (req, res) => {
 });
 
 // @route    DELETE api/profile
-// @desc     DEelete profile, user & POST
+// @desc     Delete profile, user & POST
 // @access   private
 router.delete("/", auth, async (req, res) => {
   try {
@@ -167,7 +166,7 @@ router.delete("/", auth, async (req, res) => {
   }
 });
 
-// @route    PUT api/profile/expreience
+// @route    PUT api/profile/experience
 // @desc     Add profile experience
 // @access   private
 router.put(
@@ -206,7 +205,7 @@ router.put(
   }
 );
 
-// @route    DELETE api/profile/expreience/:exp_id
+// @route    DELETE api/profile/experience/:exp_id
 // @desc     Delete experience from profile
 // @access   private
 router.delete("/experience/:exp_id", auth, async (req, res) => {
