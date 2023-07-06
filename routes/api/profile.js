@@ -45,16 +45,22 @@ router.post(
     }
 
     // destructure the request
+
+   
+
     const {
       company,
-      status,
       website,
+      location,
+      status,
       skills,
-      youtube,
+      githubusername,
+      bio,
       twitter,
-      instagram,
-      linkedin,
       facebook,
+      linkedin,
+      youtube,
+      instagram,
       // spread the rest of the fields we don't need to check
       ...rest
     } = req.body;
@@ -64,6 +70,8 @@ router.post(
     profileFields.user = req.user.id;
     if (company) profileFields.company = company;
     if (status) profileFields.status = status;
+    if (location) profileFields.location = location;
+    if (githubusername) profileFields.githubusername = githubusername;
     if (website) profileFields.website = website;
     if (youtube) profileFields.youtube = youtube;
     if (twitter) profileFields.twitter = twitter;

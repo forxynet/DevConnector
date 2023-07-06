@@ -39,7 +39,7 @@ router.post(
 );
 
 // @route  GET api/posts
-// @desc   Get allpost
+// @desc   Get all post
 // @access Private
 router.get("/", auth, async (req, res) => {
   try {
@@ -51,7 +51,7 @@ router.get("/", auth, async (req, res) => {
 });
 
 // @route  GET api/posts/:id
-// @desc   Get allpost
+// @desc   Get all post
 // @access Private
 router.get("/:id", auth, async (req, res) => {
   try {
