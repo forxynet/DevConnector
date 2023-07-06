@@ -37,7 +37,7 @@ console.log(res.data);
 
 // Add like
 export const addLike = (id) => async (dispatch) => {
-  try {
+  try {console.log(id);
     const res = await api.put(`/posts/like/${id}`);
 
     dispatch({
